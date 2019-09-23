@@ -1,4 +1,4 @@
-This project was bootstrapped with [Create React Extension](https://github.com/VasilyShelkov/create-react-extension).
+This project was bootstrapped with [Create React Extension](https://github.com/AlexandruRoman/create-react-extension).
 
 ## Available Scripts
 

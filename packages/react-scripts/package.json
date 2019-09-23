@@ -1,10 +1,10 @@
 {
-  "name": "react-browser-extension-scripts",
+  "name": "@alex_roman/react-scripts",
   "version": "0.1.2",
   "description": "Configuration and scripts for Create React Browser Extension",
   "repository": {
     "type": "git",
-    "url": "https://github.com/VasilyShelkov/create-react-extension",
+    "url": "https://github.com/AlexandruRoman/create-react-extension",
     "directory": "packages/react-scripts"
   },
   "license": "MIT",
@@ -12,7 +12,7 @@
     "node": ">=8.10"
   },
   "bugs": {
-    "url": "https://github.com/VasilyShelkov/create-react-extension/issues"
+    "url": "https://github.com/AlexandruRoman/create-react-extension/issues"
   },
   "files": [
     "bin",
