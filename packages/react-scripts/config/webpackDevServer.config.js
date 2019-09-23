@@ -11,10 +11,12 @@
 
 const errorOverlayMiddleware = require('react-dev-utils/errorOverlayMiddleware');
 const evalSourceMapMiddleware = require('react-dev-utils/evalSourceMapMiddleware');
+ // @first-iteration
 const ignoredFiles = require('react-dev-utils/ignoredFiles');
 const paths = require('./paths');
 const fs = require('fs');
 
+ // @first-iteration
 const host = process.env.HOST || '0.0.0.0';
 
 module.exports = function() {
@@ -25,7 +27,7 @@ module.exports = function() {
     // https://medium.com/webpack/webpack-dev-server-middleware-security-issues-1489d950874a
     // We have to disableHostChecking because the host is a custom extension host that will
     // always fail.
-    disableHostCheck: true,
+    disableHostCheck: true, // @first-iteration
     // Enable gzip compression of generated files.
     compress: true,
     // Silence WebpackDevServer's own logs since they're generally not useful.
@@ -45,7 +47,7 @@ module.exports = function() {
     // for files like `favicon.ico`, `manifest.json`, and libraries that are
     // for some reason broken when imported through Webpack. If you just want to
     // use an image, put it in `src` and `import` it from JavaScript instead.
-    contentBase: paths.devAppBuild,
+    contentBase: paths.devAppBuild, // @first-iteration
     // By default files from `contentBase` will not trigger a page reload.
     watchContentBase: true,
     // Enable hot reloading server. It will provide /sockjs-node/ endpoint
@@ -56,7 +58,7 @@ module.exports = function() {
     hot: true,
     // It is important to tell WebpackDevServer to use the same "root" path
     // as we specified in the config. In development, we always serve from /.
-    publicPath: '',
+    publicPath: '', // @first-iteration
     // WebpackDevServer is noisy by default so we emit custom message instead
     // by listening to the compiler events with `compiler.hooks[...].tap` calls above.
     quiet: true,
@@ -67,7 +69,7 @@ module.exports = function() {
     watchOptions: {
       ignored: ignoredFiles(paths.appSrc),
     },
-    https: false,
+    https: false, // @first-iteration
     host,
     overlay: false,
     historyApiFallback: {
@@ -75,6 +77,7 @@ module.exports = function() {
       // See https://github.com/facebook/create-react-app/issues/387.
       disableDotRule: true,
     },
+     // @first-iteration
     before(app, server) {
       if (fs.existsSync(paths.proxySetup)) {
         // This registers user provided middleware for proxy reasons
@@ -85,6 +88,7 @@ module.exports = function() {
       app.use(evalSourceMapMiddleware(server));
       // This lets us open files from the runtime error overlay.
       app.use(errorOverlayMiddleware());
+       // @first-iteration
     },
   };
 };

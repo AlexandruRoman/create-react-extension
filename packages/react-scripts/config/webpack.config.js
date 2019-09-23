@@ -15,8 +15,9 @@ const webpack = require('webpack');
 const resolve = require('resolve');
 const PnpWebpackPlugin = require('pnp-webpack-plugin');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
-const WriteFilePlugin = require('write-file-webpack-plugin');
+const WriteFilePlugin = require('write-file-webpack-plugin'); // @first-iteration
 const CaseSensitivePathsPlugin = require('case-sensitive-paths-webpack-plugin');
+// @first-iteration
 const TerserPlugin = require('terser-webpack-plugin');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 const OptimizeCSSAssetsPlugin = require('optimize-css-assets-webpack-plugin');
@@ -43,6 +44,8 @@ const appPackageJson = require(paths.appPackageJson);
 
 // Source maps are resource heavy and can cause out of memory issue for large source files.
 const shouldUseSourceMap = process.env.GENERATE_SOURCEMAP !== 'false';
+
+// @first-iteration
 
 const imageInlineSizeLimit = parseInt(
   process.env.IMAGE_INLINE_SIZE_LIMIT || '10000'
@@ -150,6 +153,10 @@ module.exports = function(webpackEnv) {
       : isEnvDevelopment && 'cheap-module-source-map',
     // These are the "entry points" to our application.
     // This means they will be the "root" imports that are included in JS bundle.
+
+    // ------------------------------------------------------------------------
+    // ---------------------------- @first-iteration --------------------------
+    // ------------------------------------------------------------------------
     entry: {
       app: [
         isEnvDevelopment &&
@@ -176,6 +183,10 @@ module.exports = function(webpackEnv) {
       // TODO: remove this when upgrading to webpack 5
       futureEmitAssets: false,
       publicPath: '',
+    // ------------------------------------------------------------------------
+    // ---------------------------- @first-iteration --------------------------
+    // ------------------------------------------------------------------------
+
       // Point sourcemap entries to original disk location (format as URL on Windows)
       devtoolModuleFilenameTemplate: isEnvProduction
         ? info =>
@@ -253,6 +264,7 @@ module.exports = function(webpackEnv) {
           },
         }),
       ],
+       // @first-iteration
     },
     resolve: {
       // This allows you to set a fallback for where Webpack should look for modules.
@@ -353,7 +365,7 @@ module.exports = function(webpackEnv) {
               loader: require.resolve('url-loader'),
               options: {
                 limit: imageInlineSizeLimit,
-                name: 'static/media/[name].[ext]',
+                name: 'static/media/[name].[ext]', // @first-iteration
               },
             },
             // Process application JS with Babel.
@@ -541,9 +553,9 @@ module.exports = function(webpackEnv) {
           {},
           {
             inject: true,
-            template: paths.appPopupHtml,
-            chunks: ['app'],
-            filename: 'popup.html',
+            template: paths.appPopupHtml, // @first-iteration
+            chunks: ['app'], // @first-iteration
+            filename: 'popup.html', // @first-iteration
           },
           isEnvProduction
             ? {
@@ -563,6 +575,7 @@ module.exports = function(webpackEnv) {
             : undefined
         )
       ),
+       // @first-iteration
       // Makes some environment variables available in index.html.
       // The public URL is available as %PUBLIC_URL% in index.html, e.g.:
       // <link rel="shortcut icon" href="%PUBLIC_URL%/favicon.ico">
@@ -579,6 +592,7 @@ module.exports = function(webpackEnv) {
       // during a production build.
       // Otherwise React will be compiled in the very slow development mode.
       new webpack.DefinePlugin(env.stringified),
+       // @first-iteration
       // Watcher doesn't work well if you mistype casing in a path so we use
       // a plugin that prints an error when you attempt to do this.
       // See https://github.com/facebook/create-react-app/issues/240
@@ -667,7 +681,7 @@ module.exports = function(webpackEnv) {
         }),
       // Forces webpack dev server to write to the file system so we can serve it for hot reloading
       // the extension. This plugin is only in effect with "webpack-dev-server", otherwise it lets webpack do the writing
-      new WriteFilePlugin(),
+      new WriteFilePlugin(), // @first-iteration
     ].filter(Boolean),
     // Some libraries import Node modules but don't use them in the browser.
     // Tell Webpack to provide empty mocks for them so importing them works.

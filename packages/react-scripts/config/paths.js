@@ -78,13 +78,13 @@ module.exports = {
   dotenv: resolveApp('.env'),
   appPath: resolveApp('.'),
   appBuild: resolveApp('build'),
-  devAppBuild: resolveApp('dev'),
+  devAppBuild: resolveApp('dev'), // @first-iteration
   appPublic: resolveApp('public'),
-  manifestJson: resolveApp('public/manifest.json'),
-  appPopupHtml: resolveApp('public/popup.html'),
+  manifestJson: resolveApp('public/manifest.json'), // @first-iteration
+  appPopupHtml: resolveApp('public/popup.html'), // @first-iteration
   appIndexJs: resolveModule(resolveApp, 'src/index'),
-  appBackgroundJs: resolveModule(resolveApp, 'src/background/index'),
-  appContentScriptJs: resolveModule(resolveApp, 'src/contentScript/index'),
+  appBackgroundJs: resolveModule(resolveApp, 'src/background/index'), // @first-iteration
+  appContentScriptJs: resolveModule(resolveApp, 'src/contentScript/index'), // @first-iteration
   appPackageJson: resolveApp('package.json'),
   appSrc: resolveApp('src'),
   appTsConfig: resolveApp('tsconfig.json'),
@@ -105,13 +105,13 @@ module.exports = {
   dotenv: resolveApp('.env'),
   appPath: resolveApp('.'),
   appBuild: resolveApp('build'),
-  devAppBuild: resolveApp('dev'),
+  devAppBuild: resolveApp('dev'), // @first-iteration
   appPublic: resolveApp('public'),
-  manifestJson: resolveApp('public/manifest.json'),
-  appPopupHtml: resolveApp('public/popup.html'),
+  manifestJson: resolveApp('public/manifest.json'), // @first-iteration
+  appPopupHtml: resolveApp('public/popup.html'), // @first-iteration
   appIndexJs: resolveModule(resolveApp, 'src/index'),
-  appBackgroundJs: resolveModule(resolveApp, 'src/background/index'),
-  appContentScriptJs: resolveModule(resolveApp, 'src/contentScript/index'),
+  appBackgroundJs: resolveModule(resolveApp, 'src/background/index'), // @first-iteration
+  appContentScriptJs: resolveModule(resolveApp, 'src/contentScript/index'), // @first-iteration
   appPackageJson: resolveApp('package.json'),
   appSrc: resolveApp('src'),
   appTsConfig: resolveApp('tsconfig.json'),
@@ -144,16 +144,16 @@ if (
     dotenv: resolveOwn('template/.env'),
     appPath: resolveApp('.'),
     appBuild: resolveOwn('../../build'),
-    devAppBuild: resolveApp('../../dev'),
+    devAppBuild: resolveApp('../../dev'), // @first-iteration
     appPublic: resolveOwn('template/public'),
-    manifestJson: resolveApp('template/public/manifest.json'),
-    appPopupHtml: resolveOwn('template/public/popup.html'),
+    manifestJson: resolveApp('template/public/manifest.json'), // @first-iteration
+    appPopupHtml: resolveOwn('template/public/popup.html'), // @first-iteration
     appIndexJs: resolveModule(resolveOwn, 'template/src/index'),
-    appBackgroundJs: resolveModule(resolveOwn, 'template/src/background/index'),
+    appBackgroundJs: resolveModule(resolveOwn, 'template/src/background/index'), // @first-iteration
     appContentScriptJs: resolveModule(
       resolveOwn,
       'template/src/contentScript/index'
-    ),
+    ), // @first-iteration
     appPackageJson: resolveOwn('package.json'),
     appSrc: resolveOwn('template/src'),
     appTsConfig: resolveOwn('template/tsconfig.json'),

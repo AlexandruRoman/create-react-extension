@@ -57,11 +57,11 @@ const isInteractive = process.stdout.isTTY;
 // Warn and crash if required files are missing
 if (
   !checkRequiredFiles([
-    paths.appPopupHtml,
-    paths.manifestJson,
+    paths.appPopupHtml, // @first-iteration
+    paths.manifestJson, // @first-iteration
     paths.appIndexJs,
-    paths.appBackgroundJs,
-    paths.appContentScriptJs,
+    paths.appBackgroundJs, // @first-iteration
+    paths.appContentScriptJs, // @first-iteration
   ])
 ) {
   process.exit(1);
@@ -84,8 +84,8 @@ checkBrowsers(paths.appPath, isInteractive)
     // if you're in it, you don't end up in Trash
     fs.emptyDirSync(paths.appBuild);
     // Merge with the public folder
-    const copyPublicFolder = require('./utils/copyPublicFolder');
-    copyPublicFolder(paths.appBuild);
+    const copyPublicFolder = require('./utils/copyPublicFolder'); // @first-iteration
+    copyPublicFolder(paths.appBuild); // @first-iteration
     // Start the webpack build
     return build(previousFileSizes);
   })
@@ -207,3 +207,4 @@ function build(previousFileSizes) {
     });
   });
 }
+ // @first-iteration
