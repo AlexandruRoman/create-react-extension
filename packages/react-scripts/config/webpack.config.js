@@ -171,6 +171,18 @@ module.exports = function(webpackEnv) {
         paths.appBackgroundJs,
       ].filter(Boolean),
       contentScript: paths.appContentScriptJs,
+      devtoolsPage: [
+        isEnvDevelopment &&
+          require.resolve('webpack-dev-server/client') +
+            '?http://localhost:4000',
+        paths.appDevtoolsPageJs,
+      ].filter(Boolean),
+      options: [
+        isEnvDevelopment &&
+          require.resolve('webpack-dev-server/client') +
+            '?http://localhost:4000',
+        paths.appOptionsJs,
+      ].filter(Boolean),
     },
     output: {
       // The build folder.
@@ -576,6 +588,66 @@ module.exports = function(webpackEnv) {
             : undefined
         )
       ),
+    // ------------------------------------------------------------------------
+    // ---------------------------- @develop --------------------------
+    // ------------------------------------------------------------------------
+      new HtmlWebpackPlugin(
+        Object.assign(
+          {},
+          {
+            inject: true,
+            template: paths.appDevtoolsPageHtml,
+            chunks: ['devtoolsPage'],
+            filename: 'devtoolsPage.html',
+          },
+          isEnvProduction
+            ? {
+                minify: {
+                  removeComments: true,
+                  collapseWhitespace: true,
+                  removeRedundantAttributes: true,
+                  useShortDoctype: true,
+                  removeEmptyAttributes: true,
+                  removeStyleLinkTypeAttributes: true,
+                  keepClosingSlash: true,
+                  minifyJS: true,
+                  minifyCSS: true,
+                  minifyURLs: true,
+                },
+              }
+            : undefined
+        )
+      ),
+      new HtmlWebpackPlugin(
+        Object.assign(
+          {},
+          {
+            inject: true,
+            template: paths.appOptionsHtml,
+            chunks: ['options'],
+            filename: 'options.html',
+          },
+          isEnvProduction
+            ? {
+                minify: {
+                  removeComments: true,
+                  collapseWhitespace: true,
+                  removeRedundantAttributes: true,
+                  useShortDoctype: true,
+                  removeEmptyAttributes: true,
+                  removeStyleLinkTypeAttributes: true,
+                  keepClosingSlash: true,
+                  minifyJS: true,
+                  minifyCSS: true,
+                  minifyURLs: true,
+                },
+              }
+            : undefined
+        )
+      ),
+    // ------------------------------------------------------------------------
+    // ---------------------------- @develop --------------------------
+    // ------------------------------------------------------------------------
        // @first-iteration
       // Makes some environment variables available in index.html.
       // The public URL is available as %PUBLIC_URL% in index.html, e.g.:

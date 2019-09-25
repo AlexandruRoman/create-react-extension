@@ -82,9 +82,15 @@ module.exports = {
   appPublic: resolveApp('public'),
   manifestJson: resolveApp('public/manifest.json'), // @first-iteration
   appPopupHtml: resolveApp('public/popup.html'), // @first-iteration
-  appIndexJs: resolveModule(resolveApp, 'src/index'),
+  appIndexJs: resolveModule(resolveApp, 'src/popup/index'),
   appBackgroundJs: resolveModule(resolveApp, 'src/background/index'), // @first-iteration
   appContentScriptJs: resolveModule(resolveApp, 'src/contentScript/index'), // @first-iteration
+  appDevtoolsHtml: resolveApp('public/devtools.html'), // @develop
+  appDevtoolsJs: resolveModule(resolveApp, 'public/devtools'), // @develop
+  appDevtoolsPageHtml: resolveApp('public/devtoolsPage.html'), // @develop
+  appDevtoolsPageJs: resolveModule(resolveApp, 'src/devtools/index'), // @develop
+  appOptionsHtml: resolveApp('public/options.html'), // @develop
+  appOptionsJs: resolveModule(resolveApp, 'src/options/index'), // @develop
   appPackageJson: resolveApp('package.json'),
   appSrc: resolveApp('src'),
   appTsConfig: resolveApp('tsconfig.json'),
@@ -109,9 +115,15 @@ module.exports = {
   appPublic: resolveApp('public'),
   manifestJson: resolveApp('public/manifest.json'), // @first-iteration
   appPopupHtml: resolveApp('public/popup.html'), // @first-iteration
-  appIndexJs: resolveModule(resolveApp, 'src/index'),
+  appIndexJs: resolveModule(resolveApp, 'src/popup/index'),
   appBackgroundJs: resolveModule(resolveApp, 'src/background/index'), // @first-iteration
   appContentScriptJs: resolveModule(resolveApp, 'src/contentScript/index'), // @first-iteration
+  appDevtoolsHtml: resolveApp('public/devtools.html'), // @develop
+  appDevtoolsJs: resolveModule(resolveApp, 'public/devtools'), // @develop
+  appDevtoolsPageHtml: resolveApp('public/devtoolsPage.html'), // @develop
+  appDevtoolsPageJs: resolveModule(resolveApp, 'src/devtools/index'), // @develop
+  appOptionsHtml: resolveApp('public/options.html'), // @develop
+  appOptionsJs: resolveModule(resolveApp, 'src/options/index'), // @develop
   appPackageJson: resolveApp('package.json'),
   appSrc: resolveApp('src'),
   appTsConfig: resolveApp('tsconfig.json'),
@@ -148,12 +160,18 @@ if (
     appPublic: resolveOwn('template/public'),
     manifestJson: resolveApp('template/public/manifest.json'), // @first-iteration
     appPopupHtml: resolveOwn('template/public/popup.html'), // @first-iteration
-    appIndexJs: resolveModule(resolveOwn, 'template/src/index'),
+    appIndexJs: resolveModule(resolveOwn, 'template/src/popup/index'),
     appBackgroundJs: resolveModule(resolveOwn, 'template/src/background/index'), // @first-iteration
     appContentScriptJs: resolveModule(
       resolveOwn,
       'template/src/contentScript/index'
-    ), // @first-iteration
+      ), // @first-iteration
+    appDevtoolsHtml: resolveOwn('template/public/devtools.html'), // @develop
+    appDevtoolsJs: resolveModule(resolveOwn, 'template/public/devtools'), // @develop
+    appDevtoolsPageHtml: resolveOwn('template/public/devtoolsPage.html'), // @develop
+    appDevtoolsPageJs: resolveModule(resolveOwn, 'template/src/devtools/index'), // @develop
+    appOptionsHtml: resolveOwn('template/public/options.html'), // @develop
+    appOptionsJs: resolveModule(resolveOwn, 'template/src/options/index'), // @develop
     appPackageJson: resolveOwn('package.json'),
     appSrc: resolveOwn('template/src'),
     appTsConfig: resolveOwn('template/tsconfig.json'),

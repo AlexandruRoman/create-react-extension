@@ -59,6 +59,10 @@ if (
     paths.appIndexJs,
     paths.appBackgroundJs, // @first-iteration
     paths.appContentScriptJs, // @first-iteration
+    paths.appDevtoolsHtml, // @develop
+    paths.appDevtoolsJs, // @develop
+    paths.appDevtoolsPageHtml, // @develop
+    paths.appOptionsHtml, // @develop
   ])
 ) {
   process.exit(1);

@@ -1,0 +1,1 @@
+chrome.devtools.panels.create("DemoPanel", "logo192.png", "devtoolsPage.html", function(panel) {});
